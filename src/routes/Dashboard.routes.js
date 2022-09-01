@@ -3,6 +3,7 @@ import { useRouteMatch, Route,BrowserRouter,Switch } from "react-router-dom";
 import Dashboard from "../views/Dashboard";
 import Home from "../pages/home/Home";
 import PrivateRoute from "./PrivateRoutes"
+import RraForm from "../pages/servicespages/rra/RraForm";
 function App() {
   const {path}=useRouteMatch()
     return (
@@ -16,17 +17,17 @@ function App() {
               </>
             )}
           />
-           {/* <Route
+           <Route
           component={({ match }) => (
             <>
               <PrivateRoute
                 exact
-                path={`${path}/profile`}
-                component={Profile}
+                path={`${path}/rra/service`}
+                component={RraForm}
               />
             </>
           )}
-        /> */}
+        />
         </Dashboard>
       </Switch>
        

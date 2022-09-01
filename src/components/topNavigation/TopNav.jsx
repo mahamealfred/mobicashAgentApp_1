@@ -1,6 +1,6 @@
 import React from 'react'
 import './topnav.css'
-
+import { Link } from 'react-router-dom'
 const TopNav = () => {
   return (
     <div>
@@ -9,6 +9,19 @@ const TopNav = () => {
             <div class="appbar-area sticky-black">
               <div class="container">
                 <div class="appbar-container">
+                    <div class="appbar-item appbar-actions">
+              <div class="appbar-action-item">
+            
+                <a
+                  href="#"
+                  class="appbar-action-bar"
+                  data-bs-toggle="modal"
+                  data-bs-target="#sidebarDrawer"
+                >
+                  <i class="flaticon-menu"></i>
+                </a>
+              </div>
+            </div>
                   <div class="appbar-item appbar-actions">
                     <div class="appbar-action-item">
                       <a href="#" class="back-page">
@@ -25,7 +38,10 @@ const TopNav = () => {
                 </div>
               </div>
             </div>
-          </div>       
+          </div> 
+
+  
+      
 </div>
   )
 }
