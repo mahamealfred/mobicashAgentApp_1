@@ -2,7 +2,34 @@ import React from 'react'
 import TopNav from '../../components/topNavigation/TopNav'
 import {  Link } from "react-router-dom";
 import Footer from '../../components/footer/Footer';
+import {useState,useEffect} from "react";
+import {useDispatch,useSelector} from "react-redux";
+import { loginAction } from '../../redux/actions/loginAction';
+import { useHistory } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 const Login = () => {
+
+  const dispatch=useDispatch();
+  const login=useSelector((state)=>state.login)
+  const history=useHistory();
+  const [username,setUsername]=useState();
+  const [password,setPassword]=useState();
+  const [errMessage,setErrMessage]=useState('')
+  const [open, setOpen] = React.useState(true);
+
+const handleSubmit=async()=>{
+
+    await dispatch(loginAction({username,password},history));
+    if(login.error){
+      setOpen(true);
+    }
+}
+const handleClose=()=>{
+  setOpen(false)
+}
   return (
     <div>
     <TopNav/>
@@ -14,14 +41,37 @@ const Login = () => {
                   <h1>Sign In </h1>
                 </div>
               </div>
-
+              {
+                  !login.error? null:
+                   <Collapse in={open}>
+                   <Alert
+                   severity="error"
+                     action={
+                       <IconButton
+                         aria-label="close"
+                         color="inherit"
+                         size="small"
+                         onClick={handleClose}
+                        //  onClick={() => {
+                        //    setOpen(false);
+                        //  }}
+                       >
+                         <CloseIcon fontSize="inherit" />
+                       </IconButton>
+                     }
+                     sx={{ mb: 0.2 }}
+                   >
+                    {login.error}
+                   </Alert>
+                 </Collapse>
+                }    
               <div class="authentication-form pb-15">
                 <form >
-                  <input
+                  {/* <input
                     type="hidden"
                     name="_token"
                     value="{{ csrf_token() }}"
-                  />
+                  /> */}
                   <div class="form-group pb-15">
                     <label>User Name</label>
                     <div class="input-group">
@@ -31,10 +81,8 @@ const Login = () => {
                         class="form-control"
                         required
                         placeholder=""
-                        // value={this.state.username}
-                        // onChange={(event) => {
-                        //   this.setState({ username: event.target.value });
-                        // }}
+                        value={username}
+                        onChange={(e)=>setUsername(e.target.value)}
                       />
                       <span class="input-group-text">
                         <i class="flaticon-user-picture"></i>
@@ -50,10 +98,8 @@ const Login = () => {
                         class="form-control password"
                         required
                         placeholder="**********"
-                        // value={this.state.password}
-                        // onChange={(event) => {
-                        //   this.setState({ password: event.target.value });
-                        // }}
+                        value={password}
+                        onChange={(e)=>setPassword(e.target.value)}
                       />
                       <span class="input-group-text reveal">
                         <i class="flaticon-invisible pass-close"></i>
@@ -81,10 +127,10 @@ const Login = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="text-right">Error message</div>
+                  <div className="text-right"></div>
                   
-                  <button class="btn main-btn main-btn-lg full-width mb-10">
-                    Sign In
+                  <button onClick={handleSubmit} class="btn main-btn main-btn-lg full-width mb-10">
+                    {login.loading?"Loading":"Sign In"}
                   </button>
                 </form>
                 <div class="form-desc">
