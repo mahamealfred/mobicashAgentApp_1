@@ -22,9 +22,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDocDetailsAction } from "../../../redux/actions/getDocDetailsAction";
 import { rraPayamentAction } from "../../../redux/actions/rraPaymentAction";
 
+const theme = createTheme();
+
+theme.typography.h3 = {
+  fontSize: '1.2rem',
+  '@media (min-width:600px)': {
+    fontSize: '1.4rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1.6rem',
+  },
+};
+
 const steps = ["Document ID", "Make Payment ", "View your payment"];
 
-const theme = createTheme();
 
 const RraForm = () => {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -58,10 +69,16 @@ const RraForm = () => {
   const [payerPhone, setPayerPhone] = useState("");
   const [brokering, setBrokering] = useState("");
   const [userGroup, setUserGroup] = useState("");
+
+  const [transactionId,setTransactionId]=useState("");
+  const [transactionStatus,setTransactionStatus]=useState("");
+  const [dateTime,setDateTime]=useState("")
   //all
 
   const [open, setOpen] = React.useState(true);
   const [docDetails, setDocDetails] = useState("");
+
+
   const history = useHistory();
 
   const getStepContent = (step) => {
@@ -95,7 +112,16 @@ const RraForm = () => {
           />
         );
       case 2:
-        return <Review />;
+        return <Review 
+        dateTime={dateTime}
+        setDateTime={setDateTime}
+        transactionId={transactionId}
+        setTransactionId={setTransactionId}
+        transactionStatus={transactionStatus}
+        taxPayerName={taxPayerName}
+        setTaxPayerName={setTaxPayerName}
+        amountToPay={amountToPay}
+        />;
       default:
         throw new Error("Unknown step");
     }
@@ -136,20 +162,24 @@ const RraForm = () => {
 
   useEffect(()=>{
 async function fetchData(){
-  
-  if(!rraPayment.loading){
-    if(rraPayment.details){
-      console.log(" result form payment",rraPayment.details)
+  if (!rraPayment.loading) {
+    if (rraPayment.details.length !== 0) {
+      //await setDocDetails(getDocDetails.details)
+      if (rraPayment.details.responseCode === 200) {
+       setTransactionId(rraPayment.details.mobicashTransctionNo)
+       setDateTime(rraPayment.details.date)
+       setTransactionStatus("success")
+        handleNext();
+      } else {
+        return null;
+      }
+      //  console.log("doc ...doc",getDocDetails.details.responseCode)
+    }
+    if (rraPayment.error) {
+      setPaymenterrorMessage(rraPayment.error);
     }
   }
-  else if(rraPayment.error){
-    console.log(" error form payment",rraPayment.error)
-  }
-  else{
-    return null;
-   
-  }
- 
+
 }
 fetchData();
   },[rraPayment.details,rraPayment.error])
@@ -245,15 +275,15 @@ fetchData();
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-
-        <Container component="main" maxWidth="sm" sx={{ mb: 2 }}>
+        <Container component="main" maxWidth="sm" sx={{display:{xs:"flex",sm:"flex",md:"block",lg:"block"}, mb: 4 }}>
           <Paper
             variant="outlined"
             sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
           >
-            <Typography component="h1" variant="h4" align="center">
-              RRA SERVICE
-            </Typography>
+             <ThemeProvider theme={theme}>
+           <Typography variant="h3" align="center">RRA SERVICE</Typography>
+           </ThemeProvider>
+            
             <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
               {steps.map((label) => (
                 <Step key={label}>
@@ -268,7 +298,7 @@ fetchData();
                     Thank you for using Mobicash payment.
                   </Typography>
                   <Typography variant="subtitle1">
-                    You have successfull pay rra service year 2022
+                    You have successfull pay your rra tax
                   </Typography>
                   <Button onClick={handleBackToHome} sx={{ mt: 3, ml: 1 }}>
                     New Payment
@@ -285,9 +315,10 @@ fetchData();
                     )}
 
                     <Button
-                      variant="contained"
+                      variant="outlined"
                       onClick={handelSubmit}
-                      sx={{ mt: 3, ml: 1 }}
+                      // sx={{ mt: 3, ml: 1 }}
+                      sx={{ my: 1, mx: 1.5 }}
                     >
                       {/* {activeStep === steps.length - 1 ? 'Mke payment' : 'Next'} */}
                       {activeStep === steps.length - 1

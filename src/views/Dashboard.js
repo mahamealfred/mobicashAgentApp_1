@@ -12,7 +12,7 @@ export default class Dashboard extends Component {
        
           {this.props.children}
       
-        <Footer/>
+      
       </div>
     );
   }

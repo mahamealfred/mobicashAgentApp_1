@@ -36,13 +36,13 @@ export const loginAction = (user,history) => async (dispatch) => {
     const jwt_secret="tokensecret"
     console.log("response",)
     if(res.data.code===200){
-      const userId=res.data.id
-      const name=res.data.display
-      const role=res.data.brokering
-      const group=res.data.group
-      console.log(userId,name,role)
-      const claims={userId,name,role,username,group,password}
-      const token= jwt.sign(claims,jwt_secret, { expiresIn: "7d"});
+      // const userId=res.data.id
+      // const name=res.data.display
+      // const role=res.data.brokering
+      // const group=res.data.group
+      // console.log(userId,name,role)
+      // const claims={userId,name,role,username,group,password}
+      // const token= jwt.sign(claims,jwt_secret, { expiresIn: "7d"});
 
       dispatch(loginSuccess(data));
       history.push('/dashboard',{push:true})
@@ -53,9 +53,9 @@ export const loginAction = (user,history) => async (dispatch) => {
   //     let errorMessage=res.data.responseMessage
   //     dispatch(loginFailure(errorMessage));
   //   }
-    else{
-     history.push('/',{push:true})
-    }
+    // else{
+    //  history.push('/',{push:true})
+    // }
   } catch (err) {
     if (err.response) {
      const errorMessage = await err.response.data.responseMessage;

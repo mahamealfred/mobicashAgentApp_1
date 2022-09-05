@@ -1,12 +1,56 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 
-import { Navigate } from "react-router-dom";
+import { Navigate ,useHistory} from "react-router-dom";
 import Services from "../../components/servicers/Services";
+import { Button } from "@mui/material";
+import { useState } from "react";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Header from '../../components/header/Header'
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  let navigate=useHistory();
+  const handleHome=()=>{
+    handleClickOpen();
+  }
   return (
     <div>
+       <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+           home
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Disagree</Button>
+          <Button onClick={handleClose} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
       <div class="body-content body-content-lg">
         <div class="container">
           <div class="add-card section-to-header mb-30">
@@ -22,27 +66,32 @@ const Home = () => {
               >
                 <Link to="#">
                   <i class="flaticon-plus"></i>
+
                 </Link>
                 <p>My Profile</p>
               </div>
             </div>
           </div>
           <Services />
+          <Header/>
+         
+            <Footer/>
           {/* home */}
         </div>
       </div>
 
-      <div class="app-navbar">
+
+      {/* <div class="app-navbar">
         <div class="container">
           <div class="navbar-content ">
             <div class="navbar-content-item">
               <Link to="/">
                 <i class="flaticon-house"></i>
-                Home
+                Home 
               </Link>
             </div>
             <div class="navbar-content-item">
-              <Link to="/mycards" class="active">
+              <Link to="/dashboard" class="active">
                 <i class="flaticon-credit-card"></i>
                 Services
               </Link>
@@ -68,7 +117,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div
         class="modal fade"
@@ -110,9 +159,15 @@ const Home = () => {
                   <h3>MobiCash Agent Menu</h3>
                   <ul class="sidebar-nav-list">
                     <li>
-                      <Link to="/">
+                    <div class="navbar-content-item">
+                    <Button class="flaticon-house" onClick={handleHome}>
+                       Home
+                    </Button> 
+                    </div>
+                      
+                      {/* <Link to="/dashboard">
                         <i class="flaticon-house"></i> Home
-                      </Link>
+                      </Link> */}
                     </li>
                     <li>
                       <Link to="/mycards" class="active">

@@ -1,13 +1,85 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import CbhiIdentificationForm from "../../pages/servicespages/cbhi/CbhiIdentificationForm";
 import RraForm from "../../pages/servicespages/rra/RraForm";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 const Services = () => {
+  const [open, setOpen] = React.useState(false);
+  const [openRRA, setOpenRRA] = React.useState(false);
+
+  const handleClickOpenRRA = () => {
+    setOpenRRA(true);
+  };
+  const handleClickOpenCBHI=()=>{
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false);
+    setOpenRRA(false);
+  };
+ 
   return (
     <div class="option-section mb-15">
+        <Dialog
+        open={openRRA}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"RRA Tax Payment Service"}
+
+          <IconButton
+          aria-label="close"
+          onClick={handleClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+        <RraForm/>
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"RSSB Payment Service"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+        <CbhiIdentificationForm/>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            Cancel
+          </Button>
+        </DialogActions>
+      </Dialog>
       <div class="row gx-3">
         <div class="col pb-15">
           <div class="option-card option-card-violet">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#rra-service">
+            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#rra-service">
               <div class="option-card-icon">
                 <img
                   src="assets/images/rra-logo-pwa-1.png"
@@ -16,12 +88,22 @@ const Services = () => {
                 />
               </div>
               <p>RRA</p>
-            </a>
+            </a> */}
+            <Button data-bs-toggle="modal" onClick={handleClickOpenRRA} >
+            <div class="option-card-icon">
+                <img
+                  src="assets/images/rra-logo-pwa-1.png"
+                  alt="logo"
+                  class="main-logo"
+                />
+              </div>
+              <p>RRA</p>
+            </Button>
           </div>
         </div>
         <div class="col pb-15">
           <div class="option-card option-card-yellow">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#rssbCbhi">
+            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#rssbCbhi">
               <div class="option-card-icon">
                 <img
                   src="assets/images/rssb-logo-pwa-1.png"
@@ -30,12 +112,22 @@ const Services = () => {
                 />
               </div>
               <p>RSSB</p>
-            </a>
+            </a> */}
+            <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
+            <div class="option-card-icon">
+                <img
+                  src="assets/images/rssb-logo-pwa-1.png"
+                  alt="logo"
+                  class="main-logo"
+                />
+              </div>
+              <p>RSSB</p>
+            </Button>
           </div>
         </div>
         <div class="col pb-15">
           <div class="option-card option-card-blue">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#rnit-service">
+            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#rnit-service">
               <div class="option-card-icon">
                 <img
                   src="assets/images/rnit-pwa-logo-1.jpg"
@@ -44,12 +136,22 @@ const Services = () => {
                 />
               </div>
               <p>RNIT</p>
-            </a>
+            </a> */}
+              <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
+            <div class="option-card-icon">
+                <img
+                  src="assets/images/rnit-pwa-logo-1.jpg"
+                  alt="logo"
+                  class="main-logo"
+                />
+              </div>
+              <p>RNIT</p>
+            </Button>
           </div>
         </div>
         <div class="col pb-15">
           <div class="option-card option-card-red">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#ltss-service">
+            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#ltss-service">
               <div class="option-card-icon">
                 <img
                   src="assets/images/ltss-pwa-logo-1.jpg"
@@ -58,13 +160,24 @@ const Services = () => {
                 />
               </div>
               <p>LTSS</p>
-            </a>
+            </a> */}
+             <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
+            <div class="option-card-icon">
+                <img
+                  src="assets/images/ltss-pwa-logo-1.jpg"
+                  alt="logo"
+                  class="main-logo"
+                />
+              </div>
+              <p>LTSS</p>
+            </Button>
+            
           </div>
         </div>
 
         <div class="col pb-15">
           <div class="option-card option-card-red">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#reg-service">
+            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#reg-service">
               <div class="option-card-icon">
                 <img
                   src="assets/images/start-pwa-logo-1.jpg"
@@ -73,12 +186,22 @@ const Services = () => {
                 />
               </div>
               <p>Electricity</p>
-            </a>
+            </a> */}
+             <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
+            <div class="option-card-icon">
+                <img
+                  src="assets/images/start-pwa-logo-1.jpg"
+                  alt="logo"
+                  class="main-logo"
+                />
+              </div>
+              <p>Electricity</p>
+            </Button>
           </div>
         </div>
         <div class="col pb-15">
           <div class="option-card option-card-red">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#tv-service">
+            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#tv-service">
               <div class="option-card-icon">
                 <img
                   src="assets/images/reg-pwa-logo-1.jpg"
@@ -87,7 +210,17 @@ const Services = () => {
                 />
               </div>
               <p>Starttimes</p>
-            </a>
+            </a> */}
+             <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
+            <div class="option-card-icon">
+                <img
+                  src="assets/images/reg-pwa-logo-1.jpg"
+                  alt="logo"
+                  class="main-logo"
+                />
+              </div>
+              <p>Startimes</p>
+            </Button>
           </div>
         </div>
         {/* call all servicer here */}
@@ -215,47 +348,7 @@ const Services = () => {
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <form>
-                    <div class="form-group mb-15">
-                      <label for="input6" class="form-label">
-                        NID
-                      </label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="input6"
-                        placeholder="1111-11222-1111-222"
-                      />
-                    </div>
-                    <div class="form-group mb-15">
-                      <label for="input7" class="form-label">
-                        CBHI Category
-                      </label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="input7"
-                        placeholder="CBHI Category"
-                      />
-                    </div>
-                    <div class="form-group mb-15">
-                      <label for="input8" class="form-label">
-                        Enter Amount
-                      </label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="input8"
-                        placeholder="Rwf 230.00"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      class="btn main-btn main-btn-lg full-width"
-                    >
-                      Pay
-                    </button>
-                  </form>
+                 <CbhiIdentificationForm/>
                 </div>
               </div>
             </div>

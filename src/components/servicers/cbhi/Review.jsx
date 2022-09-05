@@ -4,11 +4,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
-import moment from "moment";
 
 
-
-export default function Review({taxPayerName,amountToPay,transactionId,transactionStatus,dateTime}) {
+export default function Review() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -19,14 +17,14 @@ export default function Review({taxPayerName,amountToPay,transactionId,transacti
           <ListItem  sx={{ py: 1, px: 0 }}>
             <ListItemText primary=
             "Payer Name" secondary="Mahame alfres" />
-            <Typography variant="body2">{taxPayerName}</Typography>
+            <Typography variant="body2">Mahame</Typography>
           </ListItem>
         
 
         <ListItem sx={{ py: 1, px: 0 }}>
           <ListItemText primary="Amount Paid" />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            {amountToPay} Rwf
+            3500 Rwf
           </Typography>
         </ListItem>
       </List>
@@ -46,10 +44,10 @@ export default function Review({taxPayerName,amountToPay,transactionId,transacti
            
               <React.Fragment >
                 <Grid item xs={6}>
-                  <Typography gutterBottom>TransactionID </Typography>
+                  <Typography gutterBottom>Transaction Id</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{transactionId}</Typography>
+                  <Typography gutterBottom>M24876</Typography>
                 </Grid>
               </React.Fragment>
               <React.Fragment >
@@ -57,7 +55,7 @@ export default function Review({taxPayerName,amountToPay,transactionId,transacti
                   <Typography gutterBottom>Description</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>RRA service</Typography>
+                  <Typography gutterBottom>MUTUELLE service</Typography>
                 </Grid>
               </React.Fragment>
               <React.Fragment >
@@ -65,7 +63,7 @@ export default function Review({taxPayerName,amountToPay,transactionId,transacti
                   <Typography gutterBottom>Date</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom> {moment(dateTime).format("llll")}</Typography>
+                  <Typography gutterBottom>12/08/2022</Typography>
                 </Grid>
               </React.Fragment>
               <React.Fragment >
@@ -73,7 +71,7 @@ export default function Review({taxPayerName,amountToPay,transactionId,transacti
                   <Typography gutterBottom>Status</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{transactionStatus}</Typography>
+                  <Typography gutterBottom>success</Typography>
                 </Grid>
               </React.Fragment>
         
