@@ -10,8 +10,9 @@ import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { useTranslation } from "react-i18next";
 const Login = () => {
-
+  const { t } = useTranslation(["login"]);
   const dispatch=useDispatch();
   const login=useSelector((state)=>state.login)
   const history=useHistory();
@@ -38,7 +39,7 @@ const handleClose=()=>{
               <div class="page-header">
                 <div class="page-header-title page-header-item">
                   {/*<img src="assets/images/logo.png" alt="logo"/>*/}
-                  <h1>Sign In </h1>
+                  <h1>{t("signin")}</h1>
                 </div>
               </div>
               {
@@ -73,7 +74,7 @@ const handleClose=()=>{
                     value="{{ csrf_token() }}"
                   /> */}
                   <div class="form-group pb-15">
-                    <label>User Name</label>
+                    <label>{t("username")}</label>
                     <div class="input-group">
                       <input
                         type="text"
@@ -90,7 +91,7 @@ const handleClose=()=>{
                     </div>
                   </div>
                   <div class="form-group pb-15">
-                    <label>Password</label>
+                    <label>{t("password")}</label>
                     <div class="input-group">
                       <input
                         type="password"
@@ -111,7 +112,7 @@ const handleClose=()=>{
                     <div class="authentication-account-access-item">
                       <div class="input-checkbox">
                         <input type="checkbox" id="check1" />
-                        <label for="check1">Remember Me!</label>
+                        <label for="check1">{t("rememberMe")}!</label>
                       </div>
                       
                     </div>
@@ -122,7 +123,7 @@ const handleClose=()=>{
                           data-bs-toggle="modal"
                           data-bs-target="#resetPassword"
                         >
-                          Forget password?
+                          {t("forgotpassword")}?
                         </Link>
                       </div>
                     </div>
@@ -130,7 +131,7 @@ const handleClose=()=>{
                   <div className="text-right"></div>
                   
                   <button onClick={handleSubmit} class="btn main-btn main-btn-lg full-width mb-10">
-                    {login.loading?"Loading":"Sign In"}
+                    {login.loading?"Loading":`${t("signin")}`}
                   </button>
                 </form>
                 <div class="form-desc">

@@ -64,6 +64,18 @@ const Services = () => {
       >
         <DialogTitle id="alert-dialog-title">
           {"RSSB Payment Service"}
+          <IconButton
+          aria-label="close"
+          onClick={handleClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
@@ -71,9 +83,6 @@ const Services = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} autoFocus>
-            Cancel
-          </Button>
         </DialogActions>
       </Dialog>
       <div class="row gx-3">

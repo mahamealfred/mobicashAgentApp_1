@@ -1,0 +1,7 @@
+{
+	"signin": "S'identifier",
+	"username": "Nom d'utilisateur",
+	"password": "Le mot de passe",
+    "forgotpassword":"Mot de passe oublié",
+    "rememberMe":"Souviens moi"
+}

@@ -12,9 +12,10 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Header from '../../components/header/Header'
 import Footer from "../../components/footer/Footer";
-
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 const Home = () => {
-
+  const { t } = useTranslation(["home","common","login"]);
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -56,8 +57,8 @@ const Home = () => {
           <div class="add-card section-to-header mb-30">
             <div class="add-card-inner">
               <div class="add-card-item add-card-info">
-                <p>My Balance:</p>
-                <h3>Rwf 0.00</h3>
+                <p>{t("dear")}:  Agent Name</p>
+                <h4>{t("welcometomobicash")}</h4>
               </div>
               <div
                 class="add-card-item add-balance"
@@ -68,7 +69,7 @@ const Home = () => {
                   <i class="flaticon-plus"></i>
 
                 </Link>
-                <p>My Profile</p>
+                <p>{t("common:myprofile")}</p>
               </div>
             </div>
           </div>
@@ -134,9 +135,9 @@ const Home = () => {
                   <img src="assets/images/profile.PNG" alt="profile" />
                 </div>
                 <div class="sidebar-profile-text">
-                  <h3>Username</h3>
+                  <h3>{t("login:username")}</h3>
                   <p>
-                    <Link to="#">Phone Number</Link>
+                    <Link to="#">0789595309</Link>
                   </p>
                 </div>
               </div>
@@ -149,19 +150,19 @@ const Home = () => {
             </div>
             <div class="sidebar-profile-wallet">
               <div class="add-card-info">
-                <p>My Balance:</p>
+                <p>{t("home:mybalance")}:</p>
                 <h3>Rwf 2,000.50</h3>
               </div>
             </div>
             <div class="modal-body">
               <div class="sidebar-nav">
                 <div class="sidebar-nav-item">
-                  <h3>MobiCash Agent Menu</h3>
+                  <h3>{t("home:mobicashagentappmenu")}</h3>
                   <ul class="sidebar-nav-list">
                     <li>
                     <div class="navbar-content-item">
                     <Button class="flaticon-house" onClick={handleHome}>
-                       Home
+                    {t("home:home")}
                     </Button> 
                     </div>
                       
@@ -208,7 +209,7 @@ const Home = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="signin">
+                      <Link to="/">
                         <i class="flaticon-logout"></i> Logout
                       </Link>
                     </li>

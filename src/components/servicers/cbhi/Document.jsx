@@ -9,7 +9,22 @@ import Alert from "@mui/material/Alert";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-
+import {createTheme, ThemeProvider} from "@mui/material/styles";
+const theme = createTheme();
+theme.typography.h3 = {
+    fontSize: '0.9rem',
+    '@media (min-width:600px)': {
+        fontSize: '0.9rem'
+    },
+    [theme.breakpoints.up('md')]: {
+        fontSize: '1rem'
+    }
+};
+const paymentYears=[
+{
+  value:"2022"
+}
+]
 const Document = ({
   formData,
   setFormData,
@@ -47,14 +62,14 @@ const Document = ({
           </Alert>
         </Collapse>
       )}
-      <Typography variant="h6" gutterBottom>
-        HouseHold NID
-      </Typography>
+      <ThemeProvider theme={theme}>
+                <Typography variant="h3" align="center"> HouseHold NID</Typography>
+            </ThemeProvider>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <TextField
-            id="address2"
-            name="address2"
+            id="nID"
+            name="nID"
             label="NID"
             value={formData.nID}
             onChange={(e) =>
@@ -65,8 +80,34 @@ const Document = ({
             fullWidth
             autoComplete="shipping address-line2"
             variant="outlined"
+           
           />
         </Grid>
+        
+      </Grid>
+      <ThemeProvider theme={theme}>
+                <Typography variant="h3" align="center"> Year</Typography>
+            </ThemeProvider>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <TextField
+            id="nID"
+            name="PaymentYear"
+            label="Payment Year"
+            select
+            value={formData.nID}
+            onChange={(e) =>
+              setFormData({ ...formData, nID: e.target.value })
+            }
+            helperText={nIDErr ? nIDErr : ""}
+            error={nIDErr}
+            fullWidth
+            autoComplete="shipping address-line2"
+            variant="outlined"
+            
+          />
+        </Grid>
+        
       </Grid>
     </React.Fragment>
   );

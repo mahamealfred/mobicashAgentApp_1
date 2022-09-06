@@ -23,6 +23,16 @@ import Review from "../../../components/servicers/cbhi/Review";
 const steps = ["Document ID", "Make Payment ", "View your payment"];
 
 const theme = createTheme();
+theme.typography.h3 = {
+  fontSize: '1.2rem',
+  '@media (min-width:600px)': {
+    fontSize: '1.4rem',
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1.6rem',
+  },
+};
+
 
 const CbhiIdentificationForm = () => {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -120,14 +130,14 @@ fetchData();
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container component="main" maxWidth="sm" sx={{ mb: 2 }}>
+        <Container component="main" maxWidth="sm" sx={{display:{xs:"flex",sm:"flex",md:"block",lg:"block"}, mb: 4 }}>
           <Paper
             variant="outlined"
             sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
           >
-            <Typography component="h1" variant="h4" align="center">
-              MUTUELLE SERVICE
-            </Typography>
+            <ThemeProvider theme={theme}>
+           <Typography variant="h3" align="center"> MUTUELLE SERVICE</Typography>
+           </ThemeProvider>
             <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
               {steps.map((label) => (
                 <Step key={label}>
@@ -153,15 +163,19 @@ fetchData();
                   {getStepContent(activeStep)}
                   <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                     {activeStep !== 0 && (
-                      <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                      <Button onClick={handleBack} 
+                     // sx={{ mt: 3, ml: 1 }}
+                      sx={{ my: 1, mx: 1.5 }}
+                      >
                         Back
                       </Button>
                     )}
 
                     <Button
-                      variant="contained"
+                      variant="outlined"
                       onClick={handelSubmit}
-                      sx={{ mt: 3, ml: 1 }}
+                     // sx={{ mt: 3, ml: 1 }}
+                     sx={{ my: 1, mx: 1.5 }}
                     >
                       {/* {activeStep === steps.length - 1 ? 'Mke payment' : 'Next'} */}
                       {activeStep === steps.length - 1

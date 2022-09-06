@@ -309,7 +309,10 @@ fetchData();
                   {getStepContent(activeStep)}
                   <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                     {activeStep !== 0 && (
-                      <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                      <Button onClick={handleBack} 
+                     //sx={{ mt: 3, ml: 1 }}
+                      sx={{ my: 1, mx: 1.5 }}
+                      >
                         Back
                       </Button>
                     )}
