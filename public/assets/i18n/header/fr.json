@@ -1,10 +1,12 @@
 {
 	"mobicashsupport": "Prise en charge Mobicash",
-	"supportdescription":[
-	"Par",
-    "Assistance par e-mail"
-    "Ou numéro de téléphone pour",
-	"Joindre le support Mobicash"],
+	"supportdescription":"Par, Assistance par e-mail, Ou numéro de téléphone pour, Joindre le support Mobicash ",
+	"thingsyoucando":"Choses que vous pouvez faire",
+	"thingsyoucandodescription":"Payer la taxe RRA, Payer l'électricité, Payer le service RNIT, Payer le service Mutuelle",
+	"getstarted":"Commencer",
+	"myaccount":"Mon compte",
+	"myaccountdescription":"Vous pouvez, Consulter votre solde, à tout moment et modifiez votre profil",
+	"checkbalance":"",
 	"contactus":"Contactez-nous"
-	
+    
 }

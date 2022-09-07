@@ -1,5 +1,12 @@
 {
 	"send": "Send",
 	"mobicash": "Mobicash",
-	"myprofile": "My Profile"
+	"myprofile": "My Profile",
+	"makepayment":"Make Payment",
+	"viewpayment":"View Payment details",
+	"rraservice":"RRA Service",
+	"thanksmessage":"Thank you for using Mobicash",
+	"newpayment":"New Payament",
+	"back":"Back",
+	"printreceipt":"Print Receipt"
 }

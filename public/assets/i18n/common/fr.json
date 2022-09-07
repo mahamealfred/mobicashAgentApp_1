@@ -1,5 +1,12 @@
 {
 	"send": "Envoyer",
 	"mobicash": "Mobicash",
-    "myprofile": "Mon Profil"
+    "myprofile": "Mon Profil",
+	"makepayment":"Effectuer le paiement",
+	"viewpayment":"Afficher les détails du paiement",
+	"rraservice":"Service RRA",
+	"thanksmessage":"Nouveau paiement",
+	"newpayment":"New Payament",
+	"back":"Retour",
+	"printreceipt":"Imprimer le reçu"
 }

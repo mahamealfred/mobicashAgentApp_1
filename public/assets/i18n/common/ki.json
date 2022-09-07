@@ -1,5 +1,12 @@
 {
 	"send": "Ohereza",
 	"mobicash": "Mobicash",
-    "myprofile": "Umwirondoro wanjye"
+    "myprofile": "Umwirondoro wanjye",
+	"makepayment":"Kwishura",
+	"viewpayment":"Reba ibisobanuro birambuye byo Kwishura",
+	"rraservice":"Serivisi RRA",
+	"thanksmessage":"Urakoze gukoresha Mobicash",
+	"newpayment":"Ubwishyu bushya",
+	"back":"Gusubira Inyuma",
+	"printreceipt":"Inyemezabwishyu"
 }

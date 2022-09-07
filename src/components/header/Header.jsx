@@ -16,40 +16,30 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import { useTranslation } from "react-i18next";
 
-
 function PricingContent() {
   const { t } = useTranslation(["header"]);
   const tiers = [
     {
       title: `${t("mobicashsupport")}`,
       price: '0',
-      description:[`${t("supportdescription")}`],
+      description:`${t("supportdescription")}`,
       buttonText:`${t("contactus")}` ,
       buttonVariant: 'outlined',
     },
     {
-      title: 'Things you can do',
-      subheader: 'Payment Service',
+      title: `${t("thingsyoucando")}`,
+      //subheader: 'Payment Service',
       price: '15',
-      description: [
-        'Pay RRA tax',
-        'Pay Electricity',
-        'Pay RNIT service',
-        'Pay Mutuelle service',
-      ],
-      buttonText: 'Get started',
+      description: `${t("thingsyoucandodescription")}`,
+      buttonText: `${t("getstarted")}`,
       buttonVariant: 'contained',
+      buttonColor:'#FFFF'
     },
     {
-      title: 'My Account',
+      title: `${t("myaccount")}`,
       price: '30',
-      description: [
-        'You can',
-        'Check your balance',
-        'anytime and edit your profile',
-      
-      ],
-      buttonText: 'Check Balance',
+      description: `${t("myaccountdescription")}`,
+      buttonText: `${t("myaccount")}`,
       buttonVariant: 'outlined',
     },
   ];
@@ -72,7 +62,7 @@ function PricingContent() {
               <Card>
                 <CardHeader
                   title={tier.title}
-                  subheader={tier.subheader}
+                 // subheader={tier.subheader}
                   titleTypographyProps={{ align: 'center' }}
                   action={tier.title === 'My Account' ? <StarIcon /> : null}
                   subheaderTypographyProps={{
@@ -102,22 +92,23 @@ function PricingContent() {
                     </Typography>
                   </Box>
                   <ul>
-                    {tier.description.map((line) => (
+                    
                       <Typography
                         component="li"
                         variant="subtitle1"
                         align="center"
-                        key={line}
+                        // key={line.description}
                       >
-                        {line}
+                        {tier.description.split(',').join('\n')}
                       </Typography>
-                    ))}
+                   
                   </ul>
                 </CardContent>
                 <CardActions>
                   <Button
                     fullWidth
-                    // variant={tier.buttonVariant as 'outlined' || 'contained'}
+                    color="warning"
+                   variant={tier.buttonVariant=='outlined'?'outlined':'contained'}
                   >
                     {tier.buttonText}
                   </Button>

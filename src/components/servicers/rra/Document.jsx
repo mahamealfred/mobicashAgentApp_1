@@ -10,6 +10,7 @@ import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 const theme = createTheme();
 theme.typography.h3 = {
     fontSize: '0.9rem',
@@ -29,6 +30,7 @@ const Document = ({
     open,
     setOpen
 }) => {
+    const { t } = useTranslation(["common"]);
     const handleClose = () => {
         setErrorMessage('')
         setOpen(false);

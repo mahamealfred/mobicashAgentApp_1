@@ -1,9 +1,11 @@
 {
 	"mobicashsupport": "Ukeneye ubufasha kuri Mobicash",
-	"supportdescription":[
-		"Ukoresheje",
-		"Email Cyangwa numero ya terefone",
-		"kugirango ugere kubufasha bwa Mobicash"],
+	"supportdescription":"Ukoresheje,Emeli Cyangwa numero ya terefone, kugirango ugere kubufasha bwa Mobicash",
+	"thingsyoucando":"Ibintu ushobora gukora",
+	"thingsyoucandodescription":"Kwishura umusoro wa RRA, Kwishura amashanyarazi, Kwishura serivisi ya RNIT, Kwishura serivisi ya Mutuelle",
+	"getstarted":"Gutangira",
+	"myaccount":"Konti yanjye",
+	"myaccountdescription":"Urashobora, Reba impirimbanyi zawe, igihe icyo aricyo cyose hanyuma uhindure umwirondoro wawe",
     "contactus":"Twandikire"
 	
 }

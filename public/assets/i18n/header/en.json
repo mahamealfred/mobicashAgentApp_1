@@ -1,10 +1,12 @@
 {
 	"mobicashsupport": "Mobicash Support",
-	"supportdescription":[
-		"By",
-	"Email support",
-	"Or phone number to",
-	"Reach Mobicash support"],
+	"supportdescription":"By, Email support,Or phone number to,Reach Mobicash support",
+	"thingsyoucando":"Things you can do",
+	"thingsyoucandodescription":"Pay RRA tax, Pay Electricity, Pay RNIT service, Pay Mutuelle service  ",
+	"getstarted":"Get started",
+	"myaccount":"My Account",
+	"myaccountdescription":"You can, Check your balance, anytime and edit your profile ",
+	"checkbalance":"Check Balance",
 	"contactus":"Contact Us"
     
 }

@@ -21,7 +21,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDocDetailsAction } from "../../../redux/actions/getDocDetailsAction";
 import { rraPayamentAction } from "../../../redux/actions/rraPaymentAction";
-
+import { useTranslation } from "react-i18next";
 const theme = createTheme();
 
 theme.typography.h3 = {
@@ -34,10 +34,11 @@ theme.typography.h3 = {
   },
 };
 
-const steps = ["Document ID", "Make Payment ", "View your payment"];
 
 
 const RraForm = () => {
+  const { t } = useTranslation(["common","rra"]);
+  const steps = ["Document ID", `${t("common:makepayment")}`, `${t("common:viewpayment")}`];
   const [activeStep, setActiveStep] = React.useState(0);
   const dispatch = useDispatch();
   const getDocDetails = useSelector((state) => state.getDocDetails);
@@ -281,9 +282,8 @@ fetchData();
             sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
           >
              <ThemeProvider theme={theme}>
-           <Typography variant="h3" align="center">RRA SERVICE</Typography>
+           <Typography variant="h3" align="center">{t("common:rraservice")}</Typography>
            </ThemeProvider>
-            
             <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
               {steps.map((label) => (
                 <Step key={label}>
@@ -295,25 +295,26 @@ fetchData();
               {activeStep === steps.length ? (
                 <React.Fragment>
                   <Typography variant="h5" gutterBottom>
-                    Thank you for using Mobicash payment.
+                  {t("common:thanksmessage")}
                   </Typography>
                   <Typography variant="subtitle1">
-                    You have successfull pay your rra tax
+                  
+                  {t("rra:rrasuccesspaymentmessage")}
                   </Typography>
                   <Button onClick={handleBackToHome} sx={{ mt: 3, ml: 1 }}>
-                    New Payment
+                  {t("common:newpayment")}
                   </Button>
                 </React.Fragment>
               ) : (
                 <React.Fragment>
                   {getStepContent(activeStep)}
                   <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                    {activeStep !== 0 && (
+                    {activeStep !== 0 &&  (
                       <Button onClick={handleBack} 
                      //sx={{ mt: 3, ml: 1 }}
                       sx={{ my: 1, mx: 1.5 }}
                       >
-                        Back
+                       {t("common:back")}
                       </Button>
                     )}
 
@@ -323,12 +324,13 @@ fetchData();
                       // sx={{ mt: 3, ml: 1 }}
                       sx={{ my: 1, mx: 1.5 }}
                     >
+                      
                       {/* {activeStep === steps.length - 1 ? 'Mke payment' : 'Next'} */}
                       {activeStep === steps.length - 1
-                        ? "Print Receipt"
+                        ? `${t("common:printreceipt")}`
                         : activeStep === 0
-                        ? "send"
-                        : "Make Payment"}
+                        ? `${t("common:send")}`
+                        : `${t("common:makepayment")}`}
                     </Button>
                   </Box>
                 </React.Fragment>
