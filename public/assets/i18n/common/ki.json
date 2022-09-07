@@ -8,5 +8,17 @@
 	"thanksmessage":"Urakoze gukoresha Mobicash",
 	"newpayment":"Ubwishyu bushya",
 	"back":"Gusubira Inyuma",
-	"printreceipt":"Inyemezabwishyu"
+	"printreceipt":"Inyemezabwishyu",
+	"paymentmethod":"Uburyo bwo kwishyura",
+	"payername":"Izina ry'abishyura",
+	"amounttopay":"Amafaranga yo kwishyura",
+	"phonenumber":"Inomero ya terefone",
+	"agentpin":"PIN y'umu agenti",
+	"transactiondetails":"Ibisobanuro birambuye",
+	"agentname":"Amazina y'umu Agenti",
+	"amountpaid":"Amafaranga yishyuwe",
+	"status":"Imiterere",
+	"paymentdetails":"Ibisobanuro byo kwishyura",
+	"transactionid":"Numero y'igikorwa",
+	"description":"Ibisobanuro"
 }

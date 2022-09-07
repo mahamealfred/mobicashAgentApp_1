@@ -8,5 +8,18 @@
 	"thanksmessage":"Thank you for using Mobicash",
 	"newpayment":"New Payament",
 	"back":"Back",
-	"printreceipt":"Print Receipt"
+	"printreceipt":"Print Receipt",
+	"paymentmethod":"Payment method",
+	"payername":"Payer Name",
+	"amounttopay":"Amount to pay",
+	"phonenumber":"Phoner Number",
+	"agentpin":"Agent PIN",
+	"transactiondetails":"Transaction details",
+	"agentname":"Agent Name",
+	"amountpaid":"Amount paid",
+	"status":"Status",
+	"paymentdetails":"Payment details",
+	"transactionid":"TransactionID",
+	"description":"Description",
+	"date":"Date"
 }

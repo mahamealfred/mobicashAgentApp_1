@@ -8,9 +8,13 @@ import Alert from "@mui/material/Alert";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-export default function Payment({
+import { useTranslation } from "react-i18next";
+
+const Payment=({
+  
   formData,setFormData,phoneNumberError,passwordError,taxPayerName,amountToPay,rraRef, paymenterrorMessage,
-  setPaymenterrorMessage,open,setOpen}) {
+  setPaymenterrorMessage,open,setOpen})=> {
+    const { t } = useTranslation(["rra","common"]);
     const handleClose = () => {
       setPaymenterrorMessage('')
       setOpen(false);
@@ -39,12 +43,12 @@ export default function Payment({
         </Collapse>
       )}
       <Typography variant="h6" gutterBottom>
-        Payment method
+      {t("common:paymentmethod")}
       </Typography>
       <Grid container spacing={3}>
       <Grid item xs={12} md={4}>
                  <Typography variant="body2" mt={1} sx={{ fontSize: "14px", fontWeight: "bold" }} gutterBottom>
-             Payer  Name
+                 {t("common:payername")}
               </Typography>
               <Typography variant="body2" sx={{ fontSize: "16px", fontWeight: "bold" }} color="text.secondary">
               {taxPayerName}
@@ -52,7 +56,7 @@ export default function Payment({
             </Grid>
             <Grid item xs={12} md={4}>
                  <Typography variant="body2" mt={1} sx={{ fontSize: "14px", fontWeight: "bold" }} gutterBottom>
-             RRA Reference
+                 {t("rra:rrareference")}
               </Typography>
               <Typography variant="body2" sx={{ fontSize: "16px", fontWeight: "bold" }} color="text.secondary">
              {rraRef}
@@ -60,7 +64,7 @@ export default function Payment({
             </Grid>
             <Grid item xs={12} md={4}>
                  <Typography variant="body2" mt={1} sx={{ fontSize: "14px", fontWeight: "bold" }} gutterBottom>
-             Amount To Pay
+                 {t("common:amounttopay")}
               </Typography>
               <Typography variant="body2" sx={{ fontSize: "16px", fontWeight: "bold" }} color="text.secondary">
                 {amountToPay}  Rwf
@@ -71,7 +75,7 @@ export default function Payment({
           <TextField
             required
             id="cardName"
-            label="Phone number"
+            label={t("common:phonenumber")}
             value={formData.phoneNumber}
             onChange={(e)=>setFormData({...formData,phoneNumber:e.target.value})}
             helperText={phoneNumberError? phoneNumberError : ""}
@@ -85,7 +89,7 @@ export default function Payment({
           <TextField
             required
             id="cardNumber"
-            label="Agent Pin"
+            label={t("common:agentpin")}
             value={formData.password}
             onChange={(e)=>setFormData({...formData,password:e.target.value})}
             helperText={passwordError? passwordError : ""}
@@ -101,3 +105,4 @@ export default function Payment({
     </React.Fragment>
   );
 }
+export default  Payment

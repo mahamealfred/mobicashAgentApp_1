@@ -38,7 +38,7 @@ theme.typography.h3 = {
 
 const RraForm = () => {
   const { t } = useTranslation(["common","rra"]);
-  const steps = ["Document ID", `${t("common:makepayment")}`, `${t("common:viewpayment")}`];
+  const steps = [`${t("rra:rradocid")}`, `${t("common:makepayment")}`, `${t("common:viewpayment")}`];
   const [activeStep, setActiveStep] = React.useState(0);
   const dispatch = useDispatch();
   const getDocDetails = useSelector((state) => state.getDocDetails);
@@ -254,9 +254,8 @@ fetchData();
     }
   };
 
-  const handleBackToHome = () => {
-    history.push("/dashboard", { push: true });
-    window.location.reload();
+  const handleNewpayment = () => {
+   setActiveStep(0)
   };
 
   const handleNext = () => {
@@ -301,22 +300,24 @@ fetchData();
                   
                   {t("rra:rrasuccesspaymentmessage")}
                   </Typography>
-                  <Button onClick={handleBackToHome} sx={{ mt: 3, ml: 1 }}>
+                
+                  <Button onClick={handleNewpayment} sx={{ mt: 3, ml: 1 }}>
                   {t("common:newpayment")}
                   </Button>
+                  
                 </React.Fragment>
               ) : (
                 <React.Fragment>
                   {getStepContent(activeStep)}
                   <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                    {activeStep !== 0 &&  (
+                    {activeStep !== 0 && activeStep !==2? (
                       <Button onClick={handleBack} 
                      //sx={{ mt: 3, ml: 1 }}
                       sx={{ my: 1, mx: 1.5 }}
                       >
                        {t("common:back")}
                       </Button>
-                    )}
+                    ):null}
 
                     <Button
                       variant="outlined"

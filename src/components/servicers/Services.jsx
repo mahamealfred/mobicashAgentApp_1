@@ -10,7 +10,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { useTranslation } from "react-i18next";
 const Services = () => {
+  const { t } = useTranslation(["common","rra"]);
   const [open, setOpen] = React.useState(false);
   const [openRRA, setOpenRRA] = React.useState(false);
 
@@ -35,8 +37,8 @@ const Services = () => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"RRA Tax Payment Service"}
-
+         
+          {t("rra:rrataxpaymentservice")}
           <IconButton
           aria-label="close"
           onClick={handleClose}
@@ -64,6 +66,7 @@ const Services = () => {
       >
         <DialogTitle id="alert-dialog-title">
           {"RSSB Payment Service"}
+         
           <IconButton
           aria-label="close"
           onClick={handleClose}

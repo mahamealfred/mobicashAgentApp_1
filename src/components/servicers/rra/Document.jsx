@@ -30,7 +30,7 @@ const Document = ({
     open,
     setOpen
 }) => {
-    const { t } = useTranslation(["common"]);
+    const { t } = useTranslation(["rra"]);
     const handleClose = () => {
         setErrorMessage('')
         setOpen(false);
@@ -57,7 +57,7 @@ const Document = ({
             )
         }
             <ThemeProvider theme={theme}>
-                <Typography variant="h3" align="center">Document ID</Typography>
+                <Typography variant="h3" align="center">{t("rra:rradocid")}</Typography>
             </ThemeProvider>
             {/* <Typography variant="h6" gutterBottom>
         Document ID
@@ -66,7 +66,7 @@ const Document = ({
                 spacing={3}>
                 <Grid item
                     xs={12}>
-                    <TextField id="address2" name="address2" label="Document Id"
+                    <TextField id="address2" name="address2" label={t("rra:rradocid")}
                         value={
                             formData.docId
                         }

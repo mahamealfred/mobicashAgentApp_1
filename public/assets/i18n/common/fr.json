@@ -8,5 +8,17 @@
 	"thanksmessage":"Nouveau paiement",
 	"newpayment":"New Payament",
 	"back":"Retour",
-	"printreceipt":"Imprimer le reçu"
+	"printreceipt":"Imprimer le reçu",
+	"paymentmethod":"Mode de paiement",
+	"payername":"Nom du payeur",
+	"amounttopay":"Amount to pay",
+	"phonenumber":"Montant à payer",
+	"agentpin":"PIN de l'agent",
+	"transactiondetails":"Détails de la transaction",
+	"agentname":"Nom d'agent",
+	"amountpaid":"Le montant payé",
+	"status":"Statut",
+	"paymentdetails":"Détails de paiement",
+	"transactionid":"Identifiant de transaction",
+	"description":"La description"
 }

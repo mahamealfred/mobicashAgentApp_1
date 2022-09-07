@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouteMatch, Route,BrowserRouter,Switch } from "react-router-dom";
+import { useRouteMatch, Route,Switch } from "react-router-dom";
 import Dashboard from "../views/Dashboard";
 import Home from "../pages/home/Home";
 import PrivateRoute from "./PrivateRoutes"
