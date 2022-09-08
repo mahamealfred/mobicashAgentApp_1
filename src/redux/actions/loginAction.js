@@ -6,8 +6,8 @@ import {
   } from "../types/loginType";
   
   import jwt from "jsonwebtoken";
-//   import dotenv from "dotenv";
-//   dotenv.config();
+  import dotenv from "dotenv";
+  dotenv.config();
 
 
 export const loginAction = (user,history) => async (dispatch) => {
@@ -36,18 +36,17 @@ export const loginAction = (user,history) => async (dispatch) => {
     const jwt_secret="tokensecret"
     console.log("response",)
     if(res.data.code===200){
-      // const userId=res.data.id
-      // const name=res.data.display
-      // const role=res.data.brokering
-      // const group=res.data.group
-      // console.log(userId,name,role)
-      // const claims={userId,name,role,username,group,password}
-      // const token= jwt.sign(claims,jwt_secret, { expiresIn: "7d"});
-
+      const userId=res.data.id
+      const name=res.data.display
+      const role=res.data.brokering
+      const group=res.data.group
+      console.log(userId,name,role)
+      const claims={userId,name,role,username,group,password}
+      const token= jwt.sign(claims,jwt_secret, { expiresIn: "7d"});
       dispatch(loginSuccess(data));
       history.push('/dashboard',{push:true})
-    //   sessionStorage.setItem('mobicash-auth',token)
-    //   return localStorage.setItem('mobicashAuth',token);
+      sessionStorage.setItem('mobicash-auth',token)
+      return localStorage.setItem('mobicashAuth',token);
     }
   //  else if(res.data.code==401){
   //     let errorMessage=res.data.responseMessage

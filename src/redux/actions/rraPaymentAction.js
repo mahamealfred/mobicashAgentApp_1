@@ -43,8 +43,10 @@ export const rraPayamentAction = (details,username,password,history) => async (d
         amountToPay:amountToPay,
         descId:descId,
         payerPhone:payerPhoneNumber,
-        userGroup:"retail_agents",
-        brokering:"Broker"
+        userGroup:userGroup,
+        brokering:brokering
+        // userGroup:"retail_agents",
+        // brokering:"Broker"
      
    },{
     withCredentials: true,
@@ -54,7 +56,7 @@ export const rraPayamentAction = (details,username,password,history) => async (d
     'Authorization': + basicAuth,
  },
   auth: {
-    username:"jeanc2",
+    username,
     password
   }
    });

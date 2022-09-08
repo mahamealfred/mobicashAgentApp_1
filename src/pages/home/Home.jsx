@@ -15,6 +15,7 @@ import Footer from "../../components/footer/Footer";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 const Home = () => {
+  const history=useHistory();
   const { t } = useTranslation(["home","common","login"]);
   const [open, setOpen] = React.useState(false);
 
@@ -29,6 +30,12 @@ const Home = () => {
   const handleHome=()=>{
     handleClickOpen();
   }
+  const handleLogout = () => {
+    localStorage.removeItem("mobicashAuth");
+    sessionStorage.removeItem("mobicash-auth")
+    history.push("/", { push: true });
+    window.location.reload(true);
+  };
   return (
     <div>
        <Dialog
@@ -165,7 +172,7 @@ const Home = () => {
                     {t("home:home")}
                     </Button> 
                     </div>
-                      
+                  
                       {/* <Link to="/dashboard">
                         <i class="flaticon-house"></i> Home
                       </Link> */}
@@ -209,7 +216,7 @@ const Home = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/">
+                      <Link onClick={handleLogout}>
                         <i class="flaticon-logout"></i> Logout
                       </Link>
                     </li>

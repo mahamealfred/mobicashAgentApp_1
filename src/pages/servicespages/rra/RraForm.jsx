@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDocDetailsAction } from "../../../redux/actions/getDocDetailsAction";
 import { rraPayamentAction } from "../../../redux/actions/rraPaymentAction";
 import { useTranslation } from "react-i18next";
+import jwt from "jsonwebtoken";
 const theme = createTheme();
 
 theme.typography.h3 = {
@@ -127,7 +128,24 @@ const RraForm = () => {
         throw new Error("Unknown step");
     }
   };
+  const decode= (token) => {
+    const JWT_SECRET="tokensecret";
+    const payload = jwt.verify(token, JWT_SECRET);
+     return payload;
+  }
+  useEffect(() => {
+    const token =localStorage.getItem('mobicashAuth');
+    if (token) {
+    const {username}=decode(token);
+    const {role}=decode(token);
+    const {group}=decode(token);
+    setUsername(username)
+    setBrokering(role)
+    setUserGroup(group)
+    
+  }
 
+  }, []);
   useEffect(() => {
     async function fetchData() {
       if (!getDocDetails.loading) {

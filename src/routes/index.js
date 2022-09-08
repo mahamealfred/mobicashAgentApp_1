@@ -22,8 +22,8 @@ export default class index extends Component {
         return (
         
           <Switch>
-          <Route exact path="/" component={Login}/>
-          <Route exact path="/signin" component={SignIn}/>
+          <Route exact path="/" component={SignIn}/>
+          {/* <Route exact path="/signin" component={SignIn}/> */}
              <Route path="/dashboard">
              <DashboardRoute />
               </Route>

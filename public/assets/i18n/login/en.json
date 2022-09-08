@@ -3,5 +3,6 @@
 	"username": "User Name",
 	"password": "Password",
     "forgotpassword":"Forgot password",
-    "rememberMe":"Remember Me"
+    "rememberMe":"Remember Me!",
+	"agreetermsandconditions":"Agree to terms and conditions"
 }

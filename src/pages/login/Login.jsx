@@ -111,7 +111,7 @@ const handleClose=()=>{
                   <div class="authentication-account-access pb-15">
                     <div class="authentication-account-access-item">
                       <div class="input-checkbox">
-                        <input type="checkbox" id="check1" />
+                        <input type="checkbox" id="check1"/>
                         <label for="check1">{t("rememberMe")}!</label>
                       </div>
                       
