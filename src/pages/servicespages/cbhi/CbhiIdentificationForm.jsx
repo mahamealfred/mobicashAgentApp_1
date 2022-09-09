@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Document from "../../../components/servicers/cbhi/Document";
 import Payment from "../../../components/servicers/cbhi/Payment";
 import Review from "../../../components/servicers/cbhi/Review";
+import { getYearAction } from "../../../redux/actions/getYearAction";
 const steps = ["Household ID", "Make Payment", "View your payment"];
 
 const theme = createTheme();
@@ -35,17 +36,38 @@ theme.typography.h3 = {
 
 
 const CbhiIdentificationForm = () => {
+  const getYear = useSelector((state) => state.getYear);
+  const dispach = useDispatch();
   const [activeStep, setActiveStep] = React.useState(0);
   const dispatch = useDispatch();
- 
+  const [years, setYears] = React.useState([]);
+  const [nIdErrorMessage,setNIdErrorMessage]=useState("");
+  const [paymentYearErrorMessage,setPaymentYearErrorMessage]=useState("")
   const [formData, setFormData] = useState({
-    docId: "",
+    nID: "",
+    paymentYear:"",
     phoneNumber: "",
     password: "",
   });
 
   const history = useHistory();
-
+  useEffect(() => {
+    async function fetchData() {
+      await dispach(getYearAction());
+      if (!getYear.loading) {
+        if (getYear.years.return) {
+          setYears(getYear.years.return);
+        }
+      }
+      //  if(!getNidDetails.loading){
+      //   if(getNidDetails.cbhidetails){
+      //     //setHeadIdDetails(getNidDetails.details)
+      //     headIdDetails.push(getNidDetails.cbhidetails)
+      //   }
+      //  }
+  }
+    fetchData();
+  }, [!getYear.years.return]); 
   const getStepContent = (step) => {
     switch (step) {
       case 0:
@@ -53,6 +75,8 @@ const CbhiIdentificationForm = () => {
           <Document
             formData={formData}
             setFormData={setFormData}
+            years={years}
+            setYears={setYears}
          
           />
         );
@@ -88,7 +112,23 @@ fetchData();
   },[])
 
   //handle request for rra document id
-  const handleDocmentDetails = async () => {
+  const handlenIDDetails = async () => {
+    if(formData.nID==="" && formData.paymentYear==="" ){
+setPaymentYearErrorMessage("Please select payment year")
+setNIdErrorMessage("Household NID is required")
+    }
+    else if(formData.nID===""){
+      setNIdErrorMessage("Household NID is required")
+    }
+    else if(formData.paymentYear===""){
+      setPaymentYearErrorMessage("Please select payment year")
+    }
+    else{
+      setPaymentYearErrorMessage("")
+      setNIdErrorMessage("")
+      // console.log("kk",formData.paymentYear,formData.nID)
+    
+    }
     
   };
 
@@ -100,7 +140,7 @@ fetchData();
   //handle on button submit for each step
   const handelSubmit = () => {
     if (activeStep === 0) {
-      handleNext();
+      handlenIDDetails()
     } else if (activeStep === 1) {
       handleNext();
     } else if (activeStep === 2) {

@@ -10,6 +10,7 @@ import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
+import MenuItem from "@mui/material/MenuItem";
 const theme = createTheme();
 theme.typography.h3 = {
     fontSize: '0.9rem',
@@ -28,11 +29,14 @@ const paymentYears=[
 const Document = ({
   formData,
   setFormData,
-  nIDErr,
+  nIdErrorMessage,
   errorMessage,
   setErrorMessage,
   open,
   setOpen,
+  years,
+  setYears,
+  paymentYearErrorMessage
 }) => {
   const handleClose = () => {
     setErrorMessage('')
@@ -77,8 +81,8 @@ const Document = ({
             onChange={(e) =>
               setFormData({ ...formData, nID: e.target.value })
             }
-            helperText={nIDErr ? nIDErr : ""}
-            error={nIDErr}
+            helperText={nIdErrorMessage ? nIdErrorMessage : ""}
+            error={nIdErrorMessage}
             fullWidth
             autoComplete="shipping address-line2"
             variant="outlined"
@@ -88,7 +92,6 @@ const Document = ({
         
       </Grid>
       <ThemeProvider theme={theme}>
-                
                 <Typography variant="h6" color="gray"  align="center">
                 Year
                 </Typography>
@@ -100,17 +103,21 @@ const Document = ({
             name="PaymentYear"
             label="Payment Year"
             select
-            value={formData.nID}
+            value={formData.paymentYear}
             onChange={(e) =>
-              setFormData({ ...formData, nID: e.target.value })
+              setFormData({ ...formData, paymentYear: e.target.value })
             }
-            helperText={nIDErr ? nIDErr : ""}
-            error={nIDErr}
+            helperText={paymentYearErrorMessage ? paymentYearErrorMessage : ""}
+            error={paymentYearErrorMessage}
             fullWidth
             autoComplete="shipping address-line2"
             variant="outlined"
             
-          />
+          >
+             {years.map((option) => (
+                      <MenuItem key={option.year} value={option.year}>{option.year}</MenuItem>
+                    ))} 
+            </TextField>
         </Grid>
         
       </Grid>

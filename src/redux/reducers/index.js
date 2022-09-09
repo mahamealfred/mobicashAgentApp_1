@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-// import getYearReducer from "./getYearReducer";
+ import getYearReducer from "./getYearReducer";
 // import getNidDetailsReducer from "./getNidDetailsRdeucer";
 import loginReducer from "./loginReducer";
 import getDocDetailsReducer from "./getDocDetailsReducer";
@@ -24,7 +24,7 @@ const allReducers = combineReducers({
     //all 
     // balance:balanceReducer,
     // transactions:transactionsReducer,
-    // getYear:getYearReducer,
+       getYear:getYearReducer,
 
     //cbhi
     // getNidDetails: getNidDetailsReducer,

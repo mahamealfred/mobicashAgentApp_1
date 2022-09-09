@@ -59,7 +59,7 @@ const Document = ({
             <ThemeProvider theme={theme}>
                 <Typography variant="h6" color="gray"  align="center">
                     {t("rra:rradocid")}
-                </Typography>
+                    </Typography>
             </ThemeProvider>
             {/* <Typography variant="h6" gutterBottom>
         Document ID

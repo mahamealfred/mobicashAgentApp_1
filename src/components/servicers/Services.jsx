@@ -123,17 +123,8 @@ const Services = () => {
         </div>
         <div class="col pb-15">
           <div class="option-card option-card-blue">
-            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#rnit-service">
-              <div class="option-card-icon">
-                <img
-                  src="assets/images/rnit-pwa-logo-1.jpg"
-                  alt="logo"
-                  class="main-logo"
-                />
-              </div>
-              <p>RNIT</p>
-            </a> */}
-              <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
+           
+              <Button data-bs-toggle="modal"  >
             <div class="option-card-icon">
                 <img
                   src="assets/images/rnit-pwa-logo-1.jpg"
@@ -157,7 +148,7 @@ const Services = () => {
               </div>
               <p>LTSS</p>
             </a> */}
-             <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
+             <Button data-bs-toggle="modal" >
             <div class="option-card-icon">
                 <img
                   src="assets/images/ltss-pwa-logo-1.jpg"
@@ -183,7 +174,7 @@ const Services = () => {
               </div>
               <p>Electricity</p>
             </a> */}
-             <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
+             <Button data-bs-toggle="modal" >
             <div class="option-card-icon">
                 <img
                   src="assets/images/start-pwa-logo-1.jpg"
