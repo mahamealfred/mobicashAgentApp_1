@@ -63,7 +63,9 @@ const Document = ({
         </Collapse>
       )}
       <ThemeProvider theme={theme}>
-                <Typography variant="h3" align="center"> HouseHold NID</Typography>
+                <Typography variant="h6" color="gray"  align="center">
+                Household NID
+                </Typography>
             </ThemeProvider>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -86,7 +88,10 @@ const Document = ({
         
       </Grid>
       <ThemeProvider theme={theme}>
-                <Typography variant="h3" align="center"> Year</Typography>
+                
+                <Typography variant="h6" color="gray"  align="center">
+                Year
+                </Typography>
             </ThemeProvider>
       <Grid container spacing={3}>
         <Grid item xs={12}>

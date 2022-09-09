@@ -299,7 +299,24 @@ fetchData();
             sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
           >
              <ThemeProvider theme={theme}>
-           <Typography variant="h3" align="center">{t("common:rraservice")}</Typography>
+           
+
+           <div class="col pb-15">
+          <div class="option-card option-card-violet">
+            <p data-bs-toggle="modal"  >
+            <div class="option-card-icon">
+                <img
+                  src="assets/images/rra-logo-pwa-1.png"
+                  alt="logo"
+                  class="main-logo"
+                />
+                <p>RRA</p>
+              </div>
+            </p>
+          </div>
+        </div>
+            {/* {t("common:rraservice")} */}
+          
            </ThemeProvider>
             <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
               {steps.map((label) => (

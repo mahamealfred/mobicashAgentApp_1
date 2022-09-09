@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Document from "../../../components/servicers/cbhi/Document";
 import Payment from "../../../components/servicers/cbhi/Payment";
 import Review from "../../../components/servicers/cbhi/Review";
-const steps = ["Document ID", "Make Payment ", "View your payment"];
+const steps = ["Household ID", "Make Payment", "View your payment"];
 
 const theme = createTheme();
 theme.typography.h3 = {
@@ -43,9 +43,7 @@ const CbhiIdentificationForm = () => {
     phoneNumber: "",
     password: "",
   });
-  //rra get details
-  //rra payments
-  //all
+
   const history = useHistory();
 
   const getStepContent = (step) => {
@@ -136,7 +134,20 @@ fetchData();
             sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
           >
             <ThemeProvider theme={theme}>
-           <Typography variant="h3" align="center"> MUTUELLE SERVICE</Typography>
+            <div class="col pb-15">
+          <div class="option-card option-card-yellow">
+            <p data-bs-toggle="modal"  >
+            <div class="option-card-icon">
+                <img
+                  src="assets/images/rssb-logo-pwa-1.png"
+                  alt="logo"
+                  class="main-logo"
+                />
+              </div>
+              <p>RSSB</p>
+            </p>
+          </div>
+        </div>
            </ThemeProvider>
             <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
               {steps.map((label) => (
@@ -181,7 +192,7 @@ fetchData();
                       {activeStep === steps.length - 1
                         ? "Print Receipt"
                         : activeStep === 0
-                        ? "send"
+                        ? "Submit"
                         : "Make Payment"}
                     </Button>
                   </Box>

@@ -10,6 +10,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
 const Services = () => {
   const { t } = useTranslation(["common","rra"]);
@@ -37,8 +38,10 @@ const Services = () => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-         
+        
+          <Typography variant="h6" color="gray" >
           {t("rra:rrataxpaymentservice")}
+          </Typography>
           <IconButton
           aria-label="close"
           onClick={handleClose}
@@ -65,8 +68,9 @@ const Services = () => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
+          <Typography variant="h6" color="gray" >
           {"RSSB Payment Service"}
-         
+          </Typography>
           <IconButton
           aria-label="close"
           onClick={handleClose}
@@ -91,16 +95,6 @@ const Services = () => {
       <div class="row gx-3">
         <div class="col pb-15">
           <div class="option-card option-card-violet">
-            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#rra-service">
-              <div class="option-card-icon">
-                <img
-                  src="assets/images/rra-logo-pwa-1.png"
-                  alt="logo"
-                  class="main-logo"
-                />
-              </div>
-              <p>RRA</p>
-            </a> */}
             <Button data-bs-toggle="modal" onClick={handleClickOpenRRA} >
             <div class="option-card-icon">
                 <img
@@ -115,16 +109,6 @@ const Services = () => {
         </div>
         <div class="col pb-15">
           <div class="option-card option-card-yellow">
-            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#rssbCbhi">
-              <div class="option-card-icon">
-                <img
-                  src="assets/images/rssb-logo-pwa-1.png"
-                  alt="logo"
-                  class="main-logo"
-                />
-              </div>
-              <p>RSSB</p>
-            </a> */}
             <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
             <div class="option-card-icon">
                 <img
@@ -211,18 +195,8 @@ const Services = () => {
             </Button>
           </div>
         </div>
-        <div class="col pb-15">
+        {/* <div class="col pb-15">
           <div class="option-card option-card-red">
-            {/* <a href="#" data-bs-toggle="modal" data-bs-target="#tv-service">
-              <div class="option-card-icon">
-                <img
-                  src="assets/images/reg-pwa-logo-1.jpg"
-                  alt="logo"
-                  class="main-logo"
-                />
-              </div>
-              <p>Starttimes</p>
-            </a> */}
              <Button data-bs-toggle="modal" onClick={handleClickOpenCBHI} >
             <div class="option-card-icon">
                 <img
@@ -234,7 +208,7 @@ const Services = () => {
               <p>Startimes</p>
             </Button>
           </div>
-        </div>
+        </div> */}
         {/* call all servicer here */}
 
         <div

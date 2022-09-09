@@ -1,7 +1,7 @@
 {
 	"rrasuccesspaymentmessage": "You have successfully paid your RRA tax",
     "rrataxpaymentservice":"RRA Tax Payment Service",
-    "rradocid":"Document ID",
+    "rradocid":"RRA Reference",
     "rrareference":"RRA Reference"
 
 }

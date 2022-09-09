@@ -10,6 +10,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Typography from "@mui/material/Typography";
 import Header from '../../components/header/Header'
 import Footer from "../../components/footer/Footer";
 import { useTranslation } from "react-i18next";
@@ -64,19 +65,28 @@ const Home = () => {
           <div class="add-card section-to-header mb-30">
             <div class="add-card-inner">
               <div class="add-card-item add-card-info">
-                <p>{t("dear")}:  Agent Name</p>
-                <h4>{t("welcometomobicash")}</h4>
+                {/* <p>{t("dear")}:  Agent Name</p> */}
+                <Typography  variant="body2"  >
+                {t("dear")}:  Agent Name
+                </Typography>
+                <Typography  variant="body2"  >
+                {t("welcometomobicash")}
+                </Typography>
+               
               </div>
               <div
-                class="add-card-item add-balance"
+                class="add-card-item add-card-info"
                 data-bs-toggle="modal"
                 data-bs-target="#addBalance"
               >
                 <Link to="#">
                   <i class="flaticon-plus"></i>
-
                 </Link>
-                <p>{t("common:myprofile")}</p>
+                {/* <p>{t("common:myprofile")}</p> */}
+                <Typography  variant="body2"  >
+                {t("common:myprofile")}
+                </Typography>
+               
               </div>
             </div>
           </div>
@@ -172,7 +182,6 @@ const Home = () => {
                     {t("home:home")}
                     </Button> 
                     </div>
-                  
                       {/* <Link to="/dashboard">
                         <i class="flaticon-house"></i> Home
                       </Link> */}
